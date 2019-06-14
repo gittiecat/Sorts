@@ -7,8 +7,8 @@ import javax.swing.*;
 public class Sort {
 
     private static final int arraySize = 1000;
-    private static int[] array = new int[arraySize];
-    public int[] getArray() { return array; }
+    private int[] array = new int[arraySize];
+    int[] getArray() { return array; }
 
     /*
      * Window dimensions
@@ -52,13 +52,13 @@ public class Sort {
         shuffle(getArray());
     }
 
-    private static void toString(int[] array) {
+    void toString(int[] array) {
         for (int i : array) {
             System.out.println(array[i - 1]);
         }
     }
 
-    private static void checkRepeat(int[] array) {
+    static void checkRepeat(int[] array) {
         for(int i = 0; i < array.length; i++) {
             for(int j = i; j < array.length; j++) {
                 if(array[i] == array[j] && i != j) {
@@ -71,10 +71,8 @@ public class Sort {
     public static void main(String[] args) {
         new Sort().initialise();
 
-        /*
-         * drawing
-         */
         Drawing panel = new Drawing();
+        panel.addListeners();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);

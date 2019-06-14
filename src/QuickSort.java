@@ -1,6 +1,6 @@
 public class QuickSort {
 
-    static void quick(int[] array, int start, int finish) {
+    static void sort(int[] array, int start, int finish) {
 
     }
 

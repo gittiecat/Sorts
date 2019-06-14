@@ -1,7 +1,7 @@
 public class InsertionSort extends Sort{
 
-    static void insertion(int[] array, int start, int finish) {
-        for (int i = start + 1; i < finish; i++) {
+    static void sort(int[] array) {
+        for (int i = 1; i < 999; i++) {
             int key = i - 1;
             while (array[i] < array[key]) {
                 if (key != 0 && array[i] < array[key - 1]) {key--;}
