@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /*
  * Implementation of different sorting algorithms
@@ -6,15 +7,17 @@ import javax.swing.*;
 
 public class Sort {
 
-    private static final int arraySize = 1000;
-    private int[] array = new int[arraySize];
-    int[] getArray() { return array; }
+    private static final int arraySize = 950;
+    private static int[] array = new int[arraySize];
+    static int[] getArray() { return array; }
+    private static int count = 0;
 
     /*
      * Window dimensions
      */
     private static final int DEFAULT_WIDTH = 1200;
     private static final int DEFAULT_HEIGHT = 1000;
+
 
     static void insert(int[] array, int hold, int insert) {
         int holding = array[hold];
@@ -29,6 +32,7 @@ public class Sort {
             }
         }
         array[insert] = holding;
+        Drawing.updateGraph();
     }
 
     static void swap(int[] array, int hold, int swap) {
@@ -36,25 +40,29 @@ public class Sort {
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
+        Drawing.updateGraph();
     }
 
-    static void shuffle(int[] array) {
+    void shuffle(int[] array) {
         for (int i = arraySize - 2; i >= 0; i--) {
             int randIndex = (int)(Math.random()*i);
             swap(array,randIndex, i + 1);
         }
+        System.out.println(count++ + "---------------------------------");
+        toString(array);
     }
 
     private void initialise() {
-        for (int i : getArray()) {
+        for (int i = 0; i < getArray().length; i++) {
             array[i] = i + 1;
         }
         shuffle(getArray());
+        toString(getArray());
     }
 
-    void toString(int[] array) {
-        for (int i : array) {
-            System.out.println(array[i - 1]);
+    static void toString(int[] array) {
+        for (int i = 0; i < getArray().length; i++) {
+            System.out.println(array[i]);
         }
     }
 
@@ -71,12 +79,14 @@ public class Sort {
     public static void main(String[] args) {
         new Sort().initialise();
 
+//        toString(getArray());
         Drawing panel = new Drawing();
         panel.addListeners();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         frame.setVisible(true);
+        frame.setResizable(false);
         frame.add(panel);
     }
 }
