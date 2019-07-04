@@ -5,7 +5,7 @@ public class InsertionSort extends Sort{
             int key = i - 1;
             while (array[i] < array[key]) {
                 if (key != 0 && array[i] < array[key - 1]) {key--;}
-                else {Sort.insert(array,i,key);}
+                else { insert(array,i,key); }
             }
         }
     }

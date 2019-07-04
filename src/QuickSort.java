@@ -1,4 +1,4 @@
-public class QuickSort {
+public class QuickSort extends Sort {
 
     static void sort(int[] array, int start, int finish) {
 
@@ -6,6 +6,6 @@ public class QuickSort {
 
     private static void partition(int[] array, int point1, int point2) {
         int pivot = (point1 - point2)/2;
-        Sort.insert(array, pivot, point2);
+        insert(array, pivot, point2);
     }
 }

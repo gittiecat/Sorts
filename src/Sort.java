@@ -9,14 +9,16 @@ public class Sort {
 
     private static final int arraySize = 996;
     private static int[] array = new int[arraySize];
+    private static Drawing panel = new Drawing();
+    private static JFrame frame = new JFrame();
+
     static int[] getArray() { return array; }
 
     /*
      * Window dimensions
      */
     private static final int DEFAULT_WIDTH = 1200;
-    private static final int DEFAULT_HEIGHT = 1037;
-
+    private static final int DEFAULT_HEIGHT = 1026;
 
     static void insert(int[] array, int hold, int insert) {
         Drawing.getPrevState(array);
@@ -32,7 +34,8 @@ public class Sort {
             }
         }
         array[insert] = holding;
-//        AbstractDrawing.upd();
+        panel.invalidate();
+        panel.repaint();
     }
 
     static void swap(int[] array, int hold, int swap) {
@@ -41,11 +44,13 @@ public class Sort {
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
-//        AbstractDrawing.upd();
+        panel.invalidate();
+        panel.repaint();
+
     }
 
     static void shuffle(int[] array) {
-        for (int i = arraySize - 2; i >= 0; i--) {
+        for (int i = array.length - 2; i >= 0; i--) {
             int randIndex = (int)(Math.random()*i);
             swap(array,randIndex, i + 1);
         }
@@ -56,7 +61,7 @@ public class Sort {
         for (int i = 0; i < getArray().length; i++) {
             array[i] = i + 1;
         }
-//        shuffle(getArray());
+        shuffle(getArray());
         toString(getArray());
     }
 
@@ -79,9 +84,7 @@ public class Sort {
     public static void main(String[] args) {
         new Sort().initialise();
 
-        Drawing panel = new Drawing();
         panel.addListeners();
-        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         frame.setVisible(true);
