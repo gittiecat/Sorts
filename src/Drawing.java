@@ -3,8 +3,27 @@ import java.awt.*;
 
 public class Drawing extends AbstractDrawing {
 
-    static void drawUpdate() {
+    private static int[] currentState;
 
+    public void upd() {
+
+    }
+
+//    static void drawUpdate() {
+//        int[] prevState = currentState;
+//        int[] newState = Sort.getArray();
+//        for (int i = 0; i < Sort.getArray().length; i++) {
+//            if (prevState[i] != newState[i]) {
+//                g.setColor(Color.WHITE);
+//                g.drawLine(i,0,i,prevState[i]);
+//                g.setColor(getColor(i, newState));
+//                g.drawLine(i, 0, i, newState[i]);
+//            }
+//        }
+//    }
+
+    static void getPrevState(int[] array) {
+        currentState = array;
     }
 
     private void toConsole() {
@@ -35,9 +54,5 @@ public class Drawing extends AbstractDrawing {
     void addListeners() {
         buttonShuffle.addActionListener(e -> Sort.shuffle(Sort.getArray()));
         buttonSort.addActionListener(e -> doSortType());
-    }
-
-    Drawing() {
-
     }
 }

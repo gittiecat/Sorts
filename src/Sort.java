@@ -19,6 +19,7 @@ public class Sort {
 
 
     static void insert(int[] array, int hold, int insert) {
+        Drawing.getPrevState(array);
         int holding = array[hold];
         if (hold > insert) {
             for(int i = hold - 1; i >= insert; i--) {
@@ -31,13 +32,16 @@ public class Sort {
             }
         }
         array[insert] = holding;
+//        AbstractDrawing.upd();
     }
 
     static void swap(int[] array, int hold, int swap) {
+        Drawing.getPrevState(array);
         int hold1 = array[hold];
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
+//        AbstractDrawing.upd();
     }
 
     static void shuffle(int[] array) {
@@ -81,7 +85,7 @@ public class Sort {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         frame.setVisible(true);
-//        frame.setResizable(false);
+        frame.setResizable(false);
         frame.add(panel);
     }
 }
