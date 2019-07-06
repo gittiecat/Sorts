@@ -12,19 +12,19 @@ public class Sort {
     private static Drawing panel = new Drawing();
     private static JFrame frame = new JFrame();
 
-    static int[] getArray() { return array; }
-
     /*
      * Window dimensions
      */
-    private static final int DEFAULT_WIDTH = 1200;
+    private static final int DEFAULT_WIDTH = 1120;
     private static final int DEFAULT_HEIGHT = 1026;
+
+    static int[] getArray() { return array; }
 
     static void insert(int[] array, int hold, int insert) {
         Drawing.getPrevState(array);
         int holding = array[hold];
         if (hold > insert) {
-            for(int i = hold - 1; i >= insert; i--) {
+            for (int i = hold - 1; i >= insert; i--) {
                 array[i + 1] = array[i];
             }
         }
@@ -34,7 +34,7 @@ public class Sort {
             }
         }
         array[insert] = holding;
-        panel.invalidate();
+//        panel.revalidate();
         panel.repaint();
     }
 
@@ -44,9 +44,8 @@ public class Sort {
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
-        panel.invalidate();
+//        panel.revalidate();
         panel.repaint();
-
     }
 
     static void shuffle(int[] array) {

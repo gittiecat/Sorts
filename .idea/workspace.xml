@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e335b68-7e7c-489b-b9fe-aceac58f4b98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sorting/AbstractDrawing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sorting/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sorting/BubbleSort.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sorting/Drawing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sorting/Drawing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sorting/InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sorting/InsertionSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sorting/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sorting/QuickSort.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sorting/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sorting/Sort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AbstractDrawing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BubbleSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Drawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuickSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,12 +27,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            <state relative-caret-position="404">
+              <caret line="91" column="34" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#shuffle#0;class#Sort#0" />
-                <element signature="method#initialise#0;class#Sort#0" />
                 <element signature="method#toString#0;class#Sort#0" />
                 <element signature="method#checkRepeat#0;class#Sort#0" />
               </folding>
@@ -51,13 +42,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Drawing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="336">
+              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getColor#0;class#AbstractDrawing#0" />
-                <element signature="method#toConsole#0;class#AbstractDrawing#0" />
-                <element signature="method#doSortType#0;class#AbstractDrawing#0" />
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#510#511#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,11 +95,14 @@
       </list>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1294" />
-    <option name="height" value="1407" />
+    <option name="x" value="709" />
+    <option name="y" value="79" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -118,23 +111,23 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Sorts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sorts" type="462c0819:PsiDirectoryNode" />
+              <item name="Sorting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sorting" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Sorts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sorts" type="462c0819:PsiDirectoryNode" />
+              <item name="Sorting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sorting" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,7 +161,7 @@
       </method>
     </configuration>
     <configuration name="Sort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk1.8.0_192" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Sort" />
       <module name="Sorting" />
@@ -219,9 +212,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49944258" visible="true" weight="0.081875995" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49944258" visible="true" weight="0.14818764" />
       <window_info id="Structure" order="1" sideWeight="0.5005574" side_tool="true" weight="0.14498934" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -230,15 +224,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32932693" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960256" weight="0.29514718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39464882" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960256" visible="true" weight="0.29431438" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39464882" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33333334" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50039744" side_tool="true" weight="0.29514718" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.33333334" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" weight="0.39464882" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32998884" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.318218" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.31772575" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -296,23 +290,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Drawing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Operations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Operations.java" />
     <entry file="file://$PROJECT_DIR$/src/BubbleSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -336,12 +314,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="404">
+          <caret line="91" column="34" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#shuffle#0;class#Sort#0" />
-            <element signature="method#initialise#0;class#Sort#0" />
             <element signature="method#toString#0;class#Sort#0" />
             <element signature="method#checkRepeat#0;class#Sort#0" />
           </folding>
@@ -350,13 +327,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Drawing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="336">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getColor#0;class#AbstractDrawing#0" />
-            <element signature="method#toConsole#0;class#AbstractDrawing#0" />
-            <element signature="method#doSortType#0;class#AbstractDrawing#0" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
           </folding>
         </state>
       </provider>

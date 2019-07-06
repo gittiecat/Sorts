@@ -6,11 +6,12 @@ class Drawing extends JPanel{
     private JButton buttonShuffle = new JButton("Shuffle");
     private JButton buttonSort = new JButton("Sort");
     private static final int x = Sort.getArray().length/6; //array size divided by the amount of different colours
-    private static int[] currentState;
-    private JPanel graph = new JPanel()
+    private static int[] currentState = null;
+    private JPanel graph = new JPanel();
+    private static int count = 0;
 
     static void getPrevState(int[] array) {
-        currentState = array;
+        currentState = array.clone();
     }
 
     private String[] sorts = {
@@ -23,24 +24,19 @@ class Drawing extends JPanel{
     private JComboBox<String> sortTypes = new JComboBox<>(sorts);
 
     public void paintComponent(Graphics g) {
-        clear();
-        int[] array = Sort.getArray();
-        for (int i = 0; i < array.length; i++) {
-            g.setColor(getColor(i, array));
-            g.drawLine(i + 10, array.length, i + 10, array.length - array[i]);
-        }
+        super.paintComponent(g);
+        if (count == 0) { initialise(g); count++; }
+        drawUpdate(g);
     }
 
     private void drawUpdate(Graphics g) {
         int[] prevState = currentState;
         int[] newState = Sort.getArray();
         for (int i = 0; i < Sort.getArray().length; i++) {
-            if (prevState[i] != newState[i]) {
-                g.setColor(Color.WHITE);
-                g.drawLine(i,0,i,prevState[i]);
-                g.setColor(getColor(i, newState));
-                g.drawLine(i, 0, i, newState[i]);
-            }
+            g.setColor(Color.WHITE);
+            g.drawLine(i + 10, newState.length, i + 10, newState.length - prevState[i]);
+            g.setColor(getColor(i, newState));
+            g.drawLine(i + 10, newState.length, i + 10, newState.length - newState[i]);
         }
     }
 
@@ -61,10 +57,6 @@ class Drawing extends JPanel{
         else if (c == 3) { return (new Color(0,255 - val,255)); }
         else if (c == 4) { return (new Color( val,0,255)); }
         else { return (new Color(255,0,255 - val)); }
-    }
-
-    public void clear() {
-
     }
 
     void addListeners() {
