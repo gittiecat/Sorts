@@ -1,18 +1,16 @@
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
+
 import javax.swing.*;
 import java.awt.*;
 
-class Drawing extends JPanel{
+class Drawing extends JPanel {
 
     private JButton buttonShuffle = new JButton("Shuffle");
     private JButton buttonSort = new JButton("Sort");
     private static final int x = Sort.getArray().length/6; //array size divided by the amount of different colours
-    private static int[] currentState = null;
     private JPanel graph = new JPanel();
     private static int count = 0;
-
-    static void getPrevState(int[] array) {
-        currentState = array.clone();
-    }
+    boolean done = false;
 
     private String[] sorts = {
             "Bubble Sort",
@@ -26,17 +24,25 @@ class Drawing extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (count == 0) { initialise(g); count++; }
-        drawUpdate(g);
+        else { drawUpdate(g); }
     }
 
     private void drawUpdate(Graphics g) {
-        int[] prevState = currentState;
-        int[] newState = Sort.getArray();
-        for (int i = 0; i < Sort.getArray().length; i++) {
-            g.setColor(Color.WHITE);
-            g.drawLine(i + 10, newState.length, i + 10, newState.length - prevState[i]);
-            g.setColor(getColor(i, newState));
-            g.drawLine(i + 10, newState.length, i + 10, newState.length - newState[i]);
+        try {
+            int[] array = Sort.getArray();
+            for (int i = 0; i < Sort.getArray().length; i++) {
+                g.setColor(getColor(i, array));
+                g.drawLine(i + 10, array.length, i + 10, array.length - array[i]);
+//                try {
+//                    Thread.sleep(1);
+//                }
+//                catch (InterruptedException e) {
+//                    Thread.currentThread().interrupt();
+//                }
+            }
+        }
+        catch (NullPointerException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
@@ -48,7 +54,7 @@ class Drawing extends JPanel{
         }
     }
 
-    public static Color getColor(int i,int[] array) {
+    private static Color getColor(int i, int[] array) {
         int c = array[i]/x;
         int val = (int)(((double)array[i]/(double)x - c)*255);
         if (c == 0) { return (new Color(255, val,0)); }
@@ -76,15 +82,15 @@ class Drawing extends JPanel{
         {
             case 0:
                 BubbleSort.sort(Sort.getArray());
-                toConsole();
                 break;
             case 1:
                 InsertionSort.sort(Sort.getArray());
-                toConsole();
                 break;
-            case 2: System.out.println("sort not found");
+            case 2:
+                SelectionSort.sort(Sort.getArray());
                 break;
-            case 3: System.out.println("sort not found");
+            case 3:
+                QuickSort.sort(Sort.getArray(),0,995);
                 break;
         }
     }
@@ -94,7 +100,6 @@ class Drawing extends JPanel{
      */
     Drawing() {
         this.setLayout(new BorderLayout());
-
         JPanel actions = new JPanel();
         actions.setLayout(new GridLayout(3,1));
         actions.add(sortTypes);

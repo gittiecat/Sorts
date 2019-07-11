@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 /*
  * Implementation of different sorting algorithms
@@ -9,19 +8,23 @@ public class Sort {
 
     private static final int arraySize = 996;
     private static int[] array = new int[arraySize];
-    private static Drawing panel = new Drawing();
-    private static JFrame frame = new JFrame();
+    static Drawing panel = new Drawing();
+    static JFrame frame = new JFrame();
+    private static int counter = 0;
 
     /*
      * Window dimensions
      */
-    private static final int DEFAULT_WIDTH = 1120;
-    private static final int DEFAULT_HEIGHT = 1026;
+    public static final int DEFAULT_WIDTH = 1127;
+    public static final int DEFAULT_HEIGHT = 1026;
 
     static int[] getArray() { return array; }
 
+    public static void gUpdate() {
+        panel.paintImmediately(10,0, 1006,1026);
+    }
+
     static void insert(int[] array, int hold, int insert) {
-        Drawing.getPrevState(array);
         int holding = array[hold];
         if (hold > insert) {
             for (int i = hold - 1; i >= insert; i--) {
@@ -34,26 +37,24 @@ public class Sort {
             }
         }
         array[insert] = holding;
-//        panel.revalidate();
-        panel.repaint();
+        gUpdate();
     }
 
     static void swap(int[] array, int hold, int swap) {
-        Drawing.getPrevState(array);
         int hold1 = array[hold];
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
-//        panel.revalidate();
-        panel.repaint();
+        if (counter%200 == 0) { gUpdate(); }
+        counter++;
     }
 
     static void shuffle(int[] array) {
         for (int i = array.length - 2; i >= 0; i--) {
             int randIndex = (int)(Math.random()*i);
             swap(array,randIndex, i + 1);
+            gUpdate();
         }
-        toString(array);
     }
 
     private void initialise() {
@@ -61,7 +62,6 @@ public class Sort {
             array[i] = i + 1;
         }
         shuffle(getArray());
-        toString(getArray());
     }
 
     static void toString(int[] array) {
@@ -82,12 +82,34 @@ public class Sort {
 
     public static void main(String[] args) {
         new Sort().initialise();
+        DrawingRunnable d = new DrawingRunnable(DEFAULT_WIDTH, DEFAULT_HEIGHT, frame, panel);
+        Thread dt = new Thread(d);
 
-        panel.addListeners();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        frame.setVisible(true);
-        frame.setResizable(false);
-        frame.add(panel);
+        dt.start();
+    }
+}
+
+class DrawingRunnable implements Runnable {
+    private int def_width;
+    private int def_height;
+    private JFrame window;
+    private Drawing canvas;
+
+    DrawingRunnable(final int DEFAULT_WIDTH, final int DEFAULT_HEIGHT, JFrame frame, Drawing panel) {
+        def_width = DEFAULT_WIDTH;
+        def_height = DEFAULT_HEIGHT;
+        window = frame;
+        canvas = panel;
+    }
+
+    public void run() {
+        System.out.println("Starting new drawing thread...");
+
+        canvas.addListeners();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(def_width, def_height);
+        window.setVisible(true);
+        window.setResizable(false);
+        window.add(canvas);
     }
 }
