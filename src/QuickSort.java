@@ -20,6 +20,7 @@ public class QuickSort extends Sort {
             }
         }
         swap(array,i + 1, r);
+        gUpdate();
         return i + 1;
     }
 }

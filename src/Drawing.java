@@ -16,7 +16,8 @@ class Drawing extends JPanel {
             "Bubble Sort",
             "Insertion Sort",
             "Selection Sort",
-            "QuickSort"
+            "QuickSort",
+            "HeapSort"
     };
 
     private JComboBox<String> sortTypes = new JComboBox<>(sorts);
@@ -91,6 +92,9 @@ class Drawing extends JPanel {
                 break;
             case 3:
                 QuickSort.sort(Sort.getArray(),0,995);
+                break;
+            case 4:
+                HeapSort.sort(Sort.getArray());
                 break;
         }
     }
