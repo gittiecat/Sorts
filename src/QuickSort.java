@@ -4,6 +4,7 @@ public class QuickSort extends Sort {
         if (p < r) {
             int q = partition(array, p, r);
             sort(array, p, q - 1);
+            gUpdate();
             sort(array, q + 1, r);
             gUpdate();
         }
@@ -20,7 +21,7 @@ public class QuickSort extends Sort {
             }
         }
         swap(array,i + 1, r);
-        gUpdate();
+//        gUpdate();
         return i + 1;
     }
 }

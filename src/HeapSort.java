@@ -29,14 +29,22 @@
 //}
 
 public class HeapSort extends Sort {
-	static void sort(int[] array) {
-		for (int i = array.length / 2 - 1; i >= 0; i--)
-			heapify(array, i);
-		for (int i = array.length - 1; i >= 0; i--) {
-			swap(array,i,0);
-			gUpdate();
+	private static int heapSize;
 
+	static void sort(int[] array) {
+		buildHeap(array);
+		for (int i = array.length - 1; i >= 2; i--) {
+			swap(array,i,0);
+			heapSize--;
+			gUpdate();
 			heapify(array, 0);
+		}
+	}
+
+	private static void buildHeap(int[] array) {
+		heapSize = array.length;
+		for (int i = array.length / 2 - 1; i > 0; i--) {
+			heapify(array, i);
 		}
 	}
 
@@ -45,9 +53,9 @@ public class HeapSort extends Sort {
 		int l = 2 * i + 1;  // left = 2*i + 1
 		int r = 2 * i + 2;  // right = 2*i + 2
 
-		if (l < array.length && array[l] > array[largest])
+		if (l < heapSize && array[l] > array[largest])
 			largest = l;
-		if (r < array.length && array[r] > array[largest])
+		if (r < heapSize && array[r] > array[largest])
 			largest = r;
 		if (largest != i) {
 			swap(array, i, largest);

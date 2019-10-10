@@ -22,6 +22,12 @@ public class Sort {
 
     public static void gUpdate() {
         panel.paintImmediately(10,0, 1006,1026);
+        try {
+            Thread.sleep(1);
+        }
+        catch (InterruptedException e){
+
+        }
     }
 
     static void insert(int[] array, int hold, int insert) {
@@ -45,7 +51,7 @@ public class Sort {
         int hold2 = array[swap];
         array[swap] = hold1;
         array[hold] = hold2;
-        if (counter%200 == 0) { gUpdate(); }
+        if (counter%500 == 0) { gUpdate(); counter = 0; }
         counter++;
     }
 
@@ -59,7 +65,8 @@ public class Sort {
 
     private void initialise() {
         for (int i = 0; i < getArray().length; i++) {
-            array[i] = i + 1;
+            array[i] = (int)(Math.random()*getArray().length + 1);
+//            array[i] = i + 1;
         }
         shuffle(getArray());
     }
@@ -82,6 +89,9 @@ public class Sort {
 
     public static void main(String[] args) {
         new Sort().initialise();
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
         DrawingRunnable d = new DrawingRunnable(DEFAULT_WIDTH, DEFAULT_HEIGHT, frame, panel);
         Thread dt = new Thread(d);
 

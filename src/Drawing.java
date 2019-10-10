@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.model.annotation.Quick;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,17 +5,18 @@ class Drawing extends JPanel {
 
     private JButton buttonShuffle = new JButton("Shuffle");
     private JButton buttonSort = new JButton("Sort");
+
     private static final int x = Sort.getArray().length/6; //array size divided by the amount of different colours
     private JPanel graph = new JPanel();
     private static int count = 0;
-    boolean done = false;
 
     private String[] sorts = {
             "Bubble Sort",
             "Insertion Sort",
             "Selection Sort",
             "QuickSort",
-            "HeapSort"
+            "HeapSort",
+            "Merge Sort"
     };
 
     private JComboBox<String> sortTypes = new JComboBox<>(sorts);
@@ -96,6 +95,8 @@ class Drawing extends JPanel {
             case 4:
                 HeapSort.sort(Sort.getArray());
                 break;
+            case 5:
+                MergeSort.sort(Sort.getArray(),996);
         }
     }
 
